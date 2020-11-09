@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign In Success</title>
+    <title>Storage Demo</title>
     <link rel="stylesheet" href="stylesheets/style.css">
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
@@ -42,7 +42,7 @@
     <h1 id="header">Firebase Storage Demo</h1>
     <div class="flex-container">
         <div><progress id="uploader" value="0" max="100">0%</progress>
-            <input type="file" value="upload" id="fileButton">
+            <input type="file" value="upload" id="fileButton"><br><br>
         </div>
         Files uploaded:
         <div>
@@ -72,11 +72,11 @@
         fileButton.addEventListener('change', function (e) {
             var file = e.target.files[0]
             var storageRef = firebase.storage().ref();
+            var task = storageRef.child("/" + file.name).put(file);
             var list = document.getElementById("itemlist");
             var entry = document.createElement('li');
             entry.appendChild(document.createTextNode(file.name));
             list.appendChild(entry);
-            var task = storageRef.child("/" + file.name).put(file);
             task.on('state_changed',
                 function progress(snapshot) {
                     var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
@@ -94,7 +94,7 @@
             );
         });
 
-
+        
     </script>
 </body>
 
