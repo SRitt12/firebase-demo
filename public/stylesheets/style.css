@@ -1,8 +1,11 @@
-
-
-a {
-  color: #00B7FF;
+body {
+  font-family:  Arial, sans-serif;
 }
+#header{
+  display: flex;
+  justify-content: center;
+}
+
 
  .flex-container {
   display: flex;

@@ -44,9 +44,9 @@
         <div><progress id="uploader" value="0" max="100">0%</progress>
             <input type="file" value="upload" id="fileButton">
         </div>
+        Files uploaded:
         <div>
             <ul id="itemlist">
-
             </ul>
         </div>
     </div>
@@ -72,6 +72,10 @@
         fileButton.addEventListener('change', function (e) {
             var file = e.target.files[0]
             var storageRef = firebase.storage().ref();
+            var list = document.getElementById("itemlist");
+            var entry = document.createElement('li');
+            entry.appendChild(document.createTextNode(file.name));
+            list.appendChild(entry);
             var task = storageRef.child("/" + file.name).put(file);
             task.on('state_changed',
                 function progress(snapshot) {
@@ -90,7 +94,6 @@
             );
         });
 
-       
 
     </script>
 </body>
