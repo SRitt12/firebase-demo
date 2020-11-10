@@ -47,3 +47,6 @@ https://github.com/SRitt12/firebase-demo/tree/master/public
    
    https://www.w3schools.com
    
+## Demo Video
+https://app.vidgrid.com/view/PoEL5ONhLPXe
+   
